@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from "redux";
+import { createStore, combineReducers } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 // reducers 
 const initialState={
@@ -20,5 +21,5 @@ const listReducer = (state = initialState, action)=>{
 const rootReducer = combineReducers({
     lists: listReducer
 })
-const store = createStore()
-export default store
+const store = createStore(rootReducer, composeWithDevTools())
+export default store;
